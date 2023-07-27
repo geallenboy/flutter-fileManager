@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_store_ui/routes.dart';
-import 'package:fresh_store_ui/screens/tabbar/tabbar.dart';
-import 'package:fresh_store_ui/theme.dart';
+
+import 'screen1.dart';
+import 'screen2.dart';
 
 void main() {
-  runApp(const FreshBuyerApp());
+  runApp(const MyApp());
 }
 
-class FreshBuyerApp extends StatelessWidget {
-  const FreshBuyerApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Fresh-Buyer',
-      theme: appTheme(),
-      routes: routes,
-      home: const FRTabbarScreen(),
+
+      home: const Screen2(),
     );
   }
 }

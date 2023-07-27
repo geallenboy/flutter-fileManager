@@ -41,22 +41,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.17.1"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.5"
-  expandable_text:
-    dependency: "direct main"
-    description:
-      name: expandable_text
-      sha256: "7d03ea48af6987b20ece232678b744862aa3250d4a71e2aaf1e4af90015d76b1"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.3.0"
   fake_async:
     dependency: transitive
     description:
