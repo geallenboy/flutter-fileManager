@@ -1,57 +1,38 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-extension ElevatedButtonExtension on ElevatedButton {
-  ElevatedButton large() {
-    ButtonStyle _tempStyle =
-        (style != null) ? style! : ElevatedButton.styleFrom();
+class Responsive extends StatelessWidget {
+  const Responsive(
+      {required this.mobile,
+      required this.tablet,
+      required this.desktop,
+      Key? key})
+      : super(key: key);
 
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: child,
-      style: _tempStyle.copyWith(
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        minimumSize: MaterialStateProperty.all(
-          Size(double.infinity, 50),
-        ),
-        textStyle: MaterialStateProperty.all(
-          TextStyle(
-            fontSize: 15,
-            letterSpacing: 1.25,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
+  final Widget mobile;
+  final Widget tablet;
+  final Widget desktop;
 
-  ElevatedButton small() {
-    ButtonStyle _tempStyle =
-        (style != null) ? style! : ElevatedButton.styleFrom();
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 650;
 
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: child,
-      style: _tempStyle.copyWith(
-        shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-        ),
-        minimumSize: MaterialStateProperty.all(
-          Size(20, 30),
-        ),
-        textStyle: MaterialStateProperty.all(
-          TextStyle(
-            fontSize: 14,
-          ),
-        ),
-      ),
+  static bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width < 1100 &&
+      MediaQuery.of(context).size.width >= 650;
+
+  static bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1100;
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth >= 1100) {
+          return desktop;
+        } else if (constraints.maxWidth >= 650) {
+          return tablet;
+        } else {
+          return mobile;
+        }
+      },
     );
   }
 }

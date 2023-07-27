@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:game_store/app/config/routes/app_pages.dart';
-import 'package:game_store/app/config/themes/app_theme.dart';
 import 'package:get/get.dart';
+import 'package:music_app/app/config/routes/app_pages.dart';
+import 'package:music_app/app/config/themes/app_theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Game Store',
+      debugShowCheckedModeBanner: false,
+      title: 'Music App',
       theme: AppTheme.basic,
       initialRoute: AppPages.initial,
       getPages: AppPages.pages,

@@ -1,13 +1,9 @@
-part of routes;
+part of app_pages;
 
-class Routes {
-  static const intro = _Paths.intro;
+abstract class Routes {
   static const dashboard = _Paths.dashboard;
-  static const productDetail = _Paths.productDetail;
 }
 
-class _Paths {
-  static const intro = "/intro/";
+abstract class _Paths {
   static const dashboard = "/dashboard/";
-  static const productDetail = "/product/detail";
 }

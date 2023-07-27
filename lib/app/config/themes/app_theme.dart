@@ -1,26 +1,39 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/app/constants/app_constant.dart';
 
 class AppTheme {
-  static const _primaryColor = const Color.fromRGBO(95, 103, 236, 1);
-  static const _primaryColorLight = const Color.fromRGBO(111, 118, 238, 1);
+  static const Color _primaryColorLight =
+      const Color.fromRGBO(217, 223, 253, 1);
+  static const Color _primaryColor = const Color.fromRGBO(94, 119, 251, 1);
 
   static ThemeData get basic {
     return ThemeData(
+      canvasColor: Color.fromRGBO(249, 250, 254, 1),
       primarySwatch: Colors.indigo,
-      canvasColor: Color.fromRGBO(246, 247, 255, 1),
       primaryColor: _primaryColor,
       primaryColorLight: _primaryColorLight,
+      fontFamily: FontConstant.poppins,
+      dividerColor: _primaryColorLight,
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Color.fromRGBO(244, 246, 253, 1),
+        fillColor: Colors.white,
         isDense: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        errorStyle: TextStyle(height: 0),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: Colors.transparent),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: _primaryColor),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.redAccent),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: _primaryColor),
         ),
       ),
     );
