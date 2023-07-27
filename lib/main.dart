@@ -1,20 +1,24 @@
-import 'app/config/routes/app_pages.dart';
-import 'app/config/themes/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:fresh_store_ui/routes.dart';
+import 'package:fresh_store_ui/screens/tabbar/tabbar.dart';
+import 'package:fresh_store_ui/theme.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const FreshBuyerApp());
 }
 
-class MyApp extends StatelessWidget {
+class FreshBuyerApp extends StatelessWidget {
+  const FreshBuyerApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter With Gia',
-      theme: AppTheme.basic,
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Fresh-Buyer',
+      theme: appTheme(),
+      routes: routes,
+      home: const FRTabbarScreen(),
     );
   }
 }
