@@ -1,18 +1,28 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-/// all custom application theme
 class AppTheme {
-  /// default application theme
-  static ThemeData get basic => ThemeData(
-        canvasColor: Colors.white,
-        primarySwatch: Colors.blue,
-      );
+  static const _primaryColor = const Color.fromRGBO(95, 103, 236, 1);
+  static const _primaryColorLight = const Color.fromRGBO(111, 118, 238, 1);
 
-  // you can add other custom theme in this class like  light theme, dark theme ,etc.
-
-  // example :
-  // static ThemeData get light => ThemeData();
-  // static ThemeData get dark => ThemeData();
-
-  // Suggestion: to make managing themes easier, create a separate class for each theme.
+  static ThemeData get basic {
+    return ThemeData(
+      primarySwatch: Colors.indigo,
+      canvasColor: Color.fromRGBO(246, 247, 255, 1),
+      primaryColor: _primaryColor,
+      primaryColorLight: _primaryColorLight,
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: Color.fromRGBO(244, 246, 253, 1),
+        isDense: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide(color: Colors.transparent),
+        ),
+      ),
+    );
+  }
 }

@@ -1,15 +1,35 @@
 part of dashboard;
 
 class DashboardController extends GetxController {
-  final page = PageController();
-  final currentIndex = 0.obs;
+  final _productService = ProductService();
+  final _userService = UserService();
 
-  void changePage(int index) {
-    page.animateToPage(index,
-        duration: Duration(milliseconds: 300), curve: Curves.ease);
+  late final User user;
+  late final List<Product> popularGame;
+  late final List<Product> newestGame;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+    user = _userService.getUserLogin();
+    popularGame = _productService.getPopularGame();
+    newestGame = _productService.getNewestGame();
   }
 
-  void onChangedPage(int index) {
-    currentIndex.value = index;
+  void goToDetail(Product product, {required String heroTag}) {
+    Get.toNamed(
+      Routes.productDetail,
+      arguments: product,
+      parameters: {'hero_tag': "$heroTag"},
+    );
+  }
+
+  String getPopularGameTag(Product product) {
+    return "popular_game=${product.id}";
+  }
+
+  String getNewestGameTag(Product product) {
+    return "newest_game=${product.id}";
   }
 }

@@ -1,9 +1,5 @@
-library app_constants;
+library constants;
 
-import 'package:flutter/material.dart';
+part 'asset_path.dart';
 
-part 'api_path.dart';
-part 'assets_path.dart';
-part 'custom_icons.dart';
-
-const kDefaultSpacing = 20.0;
+const kDefaultPadding = 20.0;

@@ -1,39 +1,53 @@
 part of dashboard;
 
 class _BottomNavbar extends StatelessWidget {
-  _BottomNavbar(
-      {required this.currentIndex, required this.onSelected, Key? key})
-      : super(key: key);
+  _BottomNavbar({Key? key}) : super(key: key);
 
-  final Function(int index) onSelected;
-  final int currentIndex;
-
+  final _index = 0.obs;
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
-      selectedIconTheme: IconThemeData(
-        size: 28,
+    return Obx(
+      () => _customBackground(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: BottomNavigationBar(
+            onTap: (value) => _index.value = value,
+            currentIndex: _index.value,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_rounded), label: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.video_collection), label: "Collection"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.play_circle_fill), label: "Installed"),
+            ],
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            iconSize: 30,
+            unselectedItemColor: Colors.grey[500],
+          ),
+        ),
       ),
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(CustomIcons.home_outlined),
-          activeIcon: Icon(CustomIcons.home_solid),
-          tooltip: "home",
-          label: "home",
+    );
+  }
+
+  Widget _customBackground({required Widget child}) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(CustomIcons.cloud_outlined),
-          activeIcon: Icon(CustomIcons.cloud_solid),
-          label: "cloud",
-          tooltip: "cloud",
-        ),
-      ],
-      onTap: (value) {
-        onSelected(value);
-      },
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, -5),
+            color: Colors.black12,
+            blurRadius: 10,
+          )
+        ],
+      ),
+      child: child,
     );
   }
 }

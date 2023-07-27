@@ -1,31 +1,30 @@
-import 'package:filemanager/app/features/dashboard/cloud/views/screens/cloud_screen.dart';
-import 'package:filemanager/app/features/dashboard/home/views/screens/home_screen.dart';
-import 'package:filemanager/app/features/dashboard/index/views/screens/dashboard_screen.dart';
-import 'package:filemanager/app/features/splash/views/screens/splash_screen.dart';
+library routes;
 
+import 'package:game_store/app/features/dashboard/index/views/screens/dashboard_screen.dart';
+import 'package:game_store/app/features/intro/index/views/screens/intro_screen.dart';
+import 'package:game_store/app/features/product/detail/views/screens/product_detail_screen.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
 
-/// contains all configuration pages
 class AppPages {
-  /// when the app is opened this page will be the first to be shown
-  static const initial = Routes.splash;
-
-  static final routes = [
+  static const initial = _Paths.intro;
+  static final pages = [
     GetPage(
-      name: _Paths.splash,
-      page: () => SplashScreen(),
-      binding: SplashBinding(),
+      name: _Paths.intro,
+      page: () => IntroScreen(),
+      binding: IntroBinding(),
     ),
     GetPage(
       name: _Paths.dashboard,
       page: () => DashboardScreen(),
-      bindings: [
-        DashboardBinding(),
-        HomeBinding(),
-        CloudBinding(),
-      ],
+      binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.productDetail,
+      page: () => ProductDetailScreen(),
+      binding: ProductDetailBinding(),
+      transition: Transition.downToUp,
     ),
   ];
 }
