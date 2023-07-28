@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:instagram_redesign/helpers/routes.dart';
-import 'package:instagram_redesign/helpers/themes.dart';
+import 'package:shirin_meva_demo_ui/features/auth/presentations/pages/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: AppThemes.lightTheme,
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Instagram UI redesign',
-      getPages: AppRoutes.routes,
-      initialRoute: '/',
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: SplashScreen(),
     );
   }
 }
