@@ -1,4 +1,4 @@
-name: tesla_mobile_app_concept
+name: photoplay_app
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -9,14 +9,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.5
-  google_fonts: ^5.1.0
-  flutter_screenutil: ^5.8.4
-  intl: ^0.18.0
-  carousel_slider: ^4.2.1
-  font_awesome_flutter: ^10.5.0
-  provider: ^6.0.2
-  device_preview: ^1.1.0
+  cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.4
+  fluttertoast: ^8.2.2
+  provider: ^6.0.5
+  firebase_core: ^2.8.0
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.5.0
+  flutter_native_splash: ^2.2.19
+  shared_preferences: ^2.1.1
+  google_sign_in: ^6.1.4
 
 
 dev_dependencies:
@@ -28,16 +30,24 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/
+     - assets/
+     - assets/searchImages/
   fonts:
-    - family: GothamPro
-      fonts:
-        - asset: assets/fonts/GothamProBlack.ttf
-          weight: 900
-        - asset: assets/fonts/GothamProLight.ttf
-          weight: 300
-        - asset: assets/fonts/GothamProMedium.ttf
-          weight: 500
-        - asset: assets/fonts/GothamProRegular.ttf
-          weight: 400
-  
+     - family: Gotham
+       fonts:
+         - asset: assets/fonts/Gotham-Bold.otf
+         - asset: assets/fonts/Gotham-Book.otf
+         - asset: assets/fonts/Gotham-Medium.otf
+
+flutter_native_splash:
+  color: "#F5F5F5"
+  image: assets/app_logo.png
+  height: 500
+  width: 500
+  android_12:
+    color: "#F5F5F5"
+    image: assets/app_logo.png
+    height: 500
+    width: 500
+  android: true
+  ios: true
