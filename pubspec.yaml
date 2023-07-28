@@ -1,4 +1,4 @@
-name: coffee_app
+name: tesla_mobile_app_concept
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -9,10 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.3
-  flutter_feather_icons: ^2.0.0+1
-  get_it: ^7.2.0
+  cupertino_icons: ^1.0.5
+  google_fonts: ^5.1.0
+  flutter_screenutil: ^5.8.4
+  intl: ^0.18.0
+  carousel_slider: ^4.2.1
+  font_awesome_flutter: ^10.5.0
+  provider: ^6.0.2
+  device_preview: ^1.1.0
 
 
 dev_dependencies:
@@ -24,7 +28,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/coffee/
-    - assets/images/treat/
-    - assets/images/bean.png
+    - assets/images/
+  fonts:
+    - family: GothamPro
+      fonts:
+        - asset: assets/fonts/GothamProBlack.ttf
+          weight: 900
+        - asset: assets/fonts/GothamProLight.ttf
+          weight: 300
+        - asset: assets/fonts/GothamProMedium.ttf
+          weight: 500
+        - asset: assets/fonts/GothamProRegular.ttf
+          weight: 400
   
